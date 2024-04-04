@@ -14,8 +14,8 @@ public class SearchAlice {
         String searchWord = input.next().toLowerCase();
 
         if (firstSentence.contains(searchWord)) {
-            Integer index = firstSentence.indexOf(searchWord);
-            Integer length = searchWord.length();
+            int index = firstSentence.indexOf(searchWord);
+            int length = searchWord.length();
 
             System.out.println("Word appears at index " + index + ". Your word is " + length + " letters long.");
             String sentenceMinusSearchWord = firstSentence.replace(searchWord, "");
