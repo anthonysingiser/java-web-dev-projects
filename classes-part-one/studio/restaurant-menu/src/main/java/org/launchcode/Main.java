@@ -1,8 +1,8 @@
 package org.launchcode;
 
 public class Main {
-
     public static void main(String[] args) {
-	// write your code here
+        MenuItem test = new MenuItem(9.00, "delicious", "dessert", true);
+        System.out.println(test.testMethod());
     }
 }
