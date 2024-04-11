@@ -1,10 +1,10 @@
 package org.launchcode;
 
 public class Menu {
-    private MenuItem[] menu = {};
+    private ArrayList<MenuItem> menuItems = new ArrayList<MenuItem>();
     private Date dateLastUpdated = Date();
-
+    
     public Menu () {
-        
+            
     }
 }
