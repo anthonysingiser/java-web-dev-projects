@@ -13,6 +13,11 @@ public class MenuItem {
         this.isNew = iN;
     }
 
+    public String getDescription() {
+        return description;
+    }
+
+
     public void setPrice(double price) {
         this.price = price;
     }

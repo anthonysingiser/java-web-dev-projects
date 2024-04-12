@@ -11,7 +11,6 @@ public class Menu {
         this.lastUpdated = d;
         this.items = i;
     }
-
     public void setLastUpdated(Date lastUpdated) {
         this.lastUpdated = lastUpdated;
     }
@@ -27,6 +26,11 @@ public class Menu {
     public ArrayList<MenuItem> getItems() {
         return items;
     }
+
+    public void addItem(Date d, MenuItem tempItem) {
+        items.add(tempItem);
+    }
+    public void removeItem(MenuItem tempItem){
+        items.remove(tempItem);
+    }
 }
-
-
