@@ -28,9 +28,26 @@ public class Menu {
     }
 
     public void addItem(Date d, MenuItem tempItem) {
-        items.add(tempItem);
+        if (!items.contains(tempItem)) {
+            items.add(tempItem);
+            setLastUpdated(d);
+        } else {
+            System.out.println("Warning: Item already exists in the menu.");
+        }
     }
     public void removeItem(MenuItem tempItem){
         items.remove(tempItem);
     }
+
+    public void printMenu() {
+        for (MenuItem item : items) {
+            System.out.println(item);
+        }
+    }
+
+    public void printMenuItem(MenuItem item) {
+        System.out.println(item);
+    }
+
+
 }
