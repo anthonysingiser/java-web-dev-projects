@@ -10,6 +10,10 @@ abstract class Question {
         this.correctAnswer = correctAnswer;
     }
 
+    public String getQuestionText() {
+        return questionText;
+    }
+
     abstract boolean isAnswerCorrect(String answer);
 }
 
@@ -19,6 +23,17 @@ class MultipleChoiceQuestion extends Question {
     MultipleChoiceQuestion(String questionText, String correctAnswer, String[] options) {
         super(questionText, correctAnswer);
         this.options = options;
+    }
+
+    @Override
+    boolean isAnswerCorrect(String answer) {
+        return answer.equals(correctAnswer);
+    }
+}
+
+class TrueFalseQuestion extends Question {
+    TrueFalseQuestion(String questionText, String correctAnswer) {
+        super(questionText, correctAnswer);
     }
 
     @Override
@@ -37,10 +52,22 @@ class CheckboxQuestion extends Question {
 
     @Override
     boolean isAnswerCorrect(String answer) {
-        String[] answers = answer.split(",");
-        if (answers.length != correctAnswers.length) {
+        String[] userAnswers = answer.split(", ");
+        if (userAnswers.length != correctAnswers.length) {
             return false;
         }
-        return false;
+        for (String userAnswer : userAnswers) {
+            boolean found = false;
+            for (String correctAnswer : correctAnswers) {
+                if (userAnswer.equals(correctAnswer)) {
+                    found = true;
+                    break;
+                }
+            }
+            if (!found) {
+                return false;
+            }
+        }
+        return true;
     }
 }
