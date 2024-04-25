@@ -26,8 +26,20 @@ class MultipleChoiceQuestion extends Question {
     }
 
     @Override
+    public String getQuestionText() {
+        StringBuilder questionBuilder = new StringBuilder(questionText);
+        char optionLetter = 'A';
+        for (String option : options) {
+            questionBuilder.append("\n").append(optionLetter).append(") ").append(option);
+            optionLetter++;
+        }
+        return questionBuilder.toString();
+    }
+
+    @Override
     boolean isAnswerCorrect(String answer) {
-        return answer.equals(correctAnswer);
+        int answerIndex = answer.toUpperCase().charAt(0) - 'A';
+        return answerIndex >= 0 && answerIndex < options.length && options[answerIndex].equals(correctAnswer);
     }
 }
 
