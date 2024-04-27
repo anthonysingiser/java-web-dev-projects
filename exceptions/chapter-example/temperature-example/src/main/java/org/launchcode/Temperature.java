@@ -12,7 +12,11 @@ public class Temperature {
         double absoluteZeroFahrenheit = -459.67;
 
         if (aFahrenheit < absoluteZeroFahrenheit) {
-            System.out.println("Value is below absolute zero");
+            try {
+                throw new TemperatureException.BelowAbsoluteZeroException("Temperature is below absolute zero.");
+            } catch (TemperatureException.BelowAbsoluteZeroException e) {
+                e.printStackTrace();
+            }
         }
 
         fahrenheit = aFahrenheit;
