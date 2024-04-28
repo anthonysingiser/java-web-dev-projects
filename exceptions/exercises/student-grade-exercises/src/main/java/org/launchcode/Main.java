@@ -15,9 +15,16 @@ public class Main {
         // Test out your CheckFileExtension() function!
     }
 
-    public static void Divide(int x, int y)
-    {
-        // Write code here!
+    public static void Divide(int x, int y) {
+        try {
+            if (y == 0) {
+                throw new ArithmeticException();
+            }
+            int result = x / y;
+            System.out.println("The result is: " + result);
+        } catch (ArithmeticException e) {
+            System.out.println("Error: Division by zero is not allowed.");
+        }
     }
 
     public static int CheckFileExtension(String fileName)
