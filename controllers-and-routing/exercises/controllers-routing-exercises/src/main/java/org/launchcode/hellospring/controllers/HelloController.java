@@ -6,14 +6,14 @@ import org.springframework.web.bind.annotation.*;
 @Controller
 public class HelloController {
 
-//    @RequestMapping(value="")
-//    @ResponseBody
-//    public String index(@RequestParam String name) {
-//        if (name == null) {
-//            name = "World";
-//        }
-//        return "Hello " + name;
-//    }
+    @RequestMapping(value="")
+    @ResponseBody
+    public String index(@RequestParam String name) {
+        if (name == null) {
+            name = "World";
+        }
+        return "Hello " + name;
+    }
 
     @RequestMapping(value="hello", method = RequestMethod.GET)
     @ResponseBody
@@ -27,6 +27,8 @@ public class HelloController {
                 "<option value = 'italian'>Italian</option>" +
                 "<option value = 'spanish'>Spanish</option>" +
                 "<option value = 'german'>German</option>" +
+                "<option value = 'russian'>Russian</option>" +
+                "<option value = 'japanese'>Japanese</option>" +
                 "</select>" +
                 "<input type = 'submit' value = 'Greet Me!' />" +
                 "</form>";
@@ -66,6 +68,12 @@ public class HelloController {
         }
         else if (l.equals("german")) {
             greeting = "Hallo";
+        }
+        else if (l.equals("russian")) {
+            greeting = "Привет";
+        }
+        else if (l.equals("japanese")) {
+            greeting = "こんにちは";
         }
 
         return greeting + " " + n;
